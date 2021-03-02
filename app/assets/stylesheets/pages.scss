@@ -6,6 +6,11 @@ body {
   margin: 0;
 }
 
+.container {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
 // navbar
 
 .navbar {
@@ -66,3 +71,32 @@ a:hover {
 }
 
 // main dash cards
+
+.cards-container {
+  margin-top: 200px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // justify-content: space-around;
+  width: 200px;
+  height: 300px;
+  font-size: 20px;
+}
+
+.card-title {
+  margin-bottom: 15px;
+}
+
+.card-body {
+  width: 100%;
+  height: 200px;
+  box-shadow: 1px 3px 3px grey;
+  border-radius: 5px;
+  border: 2px solid lightgrey;
+}

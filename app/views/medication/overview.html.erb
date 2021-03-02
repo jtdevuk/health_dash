@@ -1,6 +1,6 @@
 <h1><%= "#{@user.first_name} #{@user.last_name}'s medications" %></h1>
 <% if @user.medications.any? %>
-  <%= render 'medication_table' %>
+  <%= render 'medication_table', locals: { medications: @medications } %>
 <% else %>
   You have no medications on record. Please click below to add one.
   <%= render 'shared/add_item_card' %>

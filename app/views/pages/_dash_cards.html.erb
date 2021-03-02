@@ -4,8 +4,13 @@
     <div class="card-body"><i class="far fa-calendar-alt"></i></div>
   </div>
   <div class="card">
-    <div class="card-title">Medications</div>
-    <div class="card-body"><i class="fas fa-capsules"></i></div>
+      <div class="card-title">Medications</div>
+    
+      <div class="card-body">
+        <%= link_to medication_path do %>
+          <i class="fas fa-capsules"></i>
+        <% end %>
+      </div>
   </div>
   <div class="card">
     <div class="card-title">Records</div>

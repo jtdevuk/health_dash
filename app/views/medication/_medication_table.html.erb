@@ -4,12 +4,16 @@
     <th>Description</th>
     <th>Quantity Remaining</th>
     <th>Dose</th>
+    <th></th>
   </header>
   <% @medications.each do |med| %>
-    <tr>
+    <tr class="hoverable-row">
       <td><%= med.name %></td>
       <td><%= med.description %></td>
       <td><%= med.remaining %></td>
+      <td></td>
+      <td class="hoverable-row-dark">Change</td>
     </tr>
   <% end %>
 </table>
+<div class="centered">Add another medication</div>

@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'medication/overview'
   devise_for :users
+  resources :medications
   root "pages#dash"
-  get "/medication", to: "medication#overview", as: "medication"
 end

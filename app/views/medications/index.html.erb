@@ -3,6 +3,7 @@
   <%= render 'medication_table', locals: { medications: @medications } %>
 <% else %>
   You have no medications on record. Please click below to add one.
-  <%= render 'shared/add_item_card' %>
-  <%= render 'add_medication_form' %>
+  <%#= link_to medication_new_path do %>
+    <%= render 'shared/add_item_card' %>
+  <%# end %>
 <% end %>

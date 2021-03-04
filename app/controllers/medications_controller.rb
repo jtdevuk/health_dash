@@ -20,6 +20,10 @@ class MedicationsController < ApplicationController
     end
   end
 
+  def edit
+    @med = Medication.find(params[:id])  
+  end
+
   private
 
   def medication_params

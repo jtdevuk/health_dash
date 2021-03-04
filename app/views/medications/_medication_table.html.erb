@@ -12,7 +12,9 @@
       <td><%= med.description %></td>
       <td><%= med.remaining %></td>
       <td></td>
-      <td class="hoverable-row-dark">Change</td>
+      <td class="hoverable-row-dark">
+        <%= link_to "Change", edit_medication_path(med) %>
+      </td>
     </tr>
   <% end %>
 </table>

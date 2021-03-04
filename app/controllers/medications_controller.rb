@@ -10,11 +10,11 @@ class MedicationsController < ApplicationController
   end
 
   def create
-    @med = Medication.new(medication_params)
-    @med.user_id = current_user.id
+    @med = Medication.new(medication_params)    
 
     if @med.save
       redirect_to medications_path
+      current_user.medications << @med
     else
       render "new"
     end

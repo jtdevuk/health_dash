@@ -1,4 +1,7 @@
 class MedicationsController < ApplicationController
+
+  before_action :set_medication, only: [:edit, :update]
+
   def index
     @user = current_user
     @medications = current_user.medications
@@ -20,11 +23,23 @@ class MedicationsController < ApplicationController
     end
   end
 
-  def edit
-    @med = Medication.find(params[:id])  
+  def edit     
+  end
+
+  def update    
+    if @med.update(medication_params)
+      redirect_to medications_path
+      current_user.medications << @med
+    else
+      render "edit"
+    end
   end
 
   private
+
+  def set_medication
+    @med = Medication.find(params[:id])
+  end
 
   def medication_params
     params.require(:medication).permit(:name, :description, :remaining, :user_id)

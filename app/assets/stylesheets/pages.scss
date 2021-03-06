@@ -7,10 +7,6 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-a {
-  text-decoration: none;
-}
-
 .container {
   max-width: 80%;
   margin: 0 auto;
@@ -35,6 +31,10 @@ a {
   a {
     text-decoration: none;
     color: white;
+  }
+
+  a:hover {
+    border-bottom: 2px solid white;
   }
 }
 
@@ -77,10 +77,6 @@ a {
 
 #title {
   justify-content: flex-start;
-}
-
-a:hover {
-  border-bottom: 2px solid white;
 }
 
 .fa-heartbeat:hover {

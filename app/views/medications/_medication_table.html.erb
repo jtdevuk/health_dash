@@ -13,9 +13,16 @@
       <td><%= med.dose %></td>
       <td><%= med.remaining %></td>
       <td class="hoverable-row-dark">
-        <%= link_to "Change", edit_medication_path(med) %>
+        <%= link_to edit_medication_path(med) do %>
+          <i class="far fa-edit"></i>
+        <% end %>
+        <%= link_to medication_path(med), method: :delete, data: { confirm: "Are you sure?" } do %>
+          <i class="far fa-trash-alt"></i>
+        <% end %>
       </td>      
     </tr>
+    <tr>
+      </tr>
   <% end %>
 </table>
 

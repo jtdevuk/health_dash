@@ -1,6 +1,6 @@
 class MedicationsController < ApplicationController
 
-  before_action :set_medication, only: [:edit, :update]
+  before_action :set_medication, only: [:edit, :update, :destroy]
 
   def index
     @user = current_user
@@ -25,6 +25,11 @@ class MedicationsController < ApplicationController
   end
 
   def edit     
+  end
+
+  def destroy
+    @med.destroy
+    redirect_to medications_path
   end
 
   def update    

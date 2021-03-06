@@ -3,24 +3,18 @@
     <th>Name</th>
     <th>Description</th>
     <th>Dose</th>
+    <th>Remaining</th>
     <th></th>
   </header>
   <% @medications.each do |med| %>
     <tr class="hoverable-row">
       <td><%= med.name %></td>  
-      <td><%= med.description %></td>
-      <td></td>
+      <td><%= med.description%></td>
+      <td><%= med.dose %></td>
+      <td><%= med.remaining %></td>
       <td class="hoverable-row-dark">
         <%= link_to "Change", edit_medication_path(med) %>
-      </td>
-      <% if med.doses.any? %>
-        <tr>
-          <% med.doses.each do |dose| %>     
-          <td><%= dose.amount %></td>   
-          <td><%= dose.measure %></td>      
-        <% end %>
-        </tr>
-      <% end %>
+      </td>      
     </tr>
   <% end %>
 </table>

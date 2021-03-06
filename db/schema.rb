@@ -10,23 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_05_200529) do
-
-  create_table "doses", force: :cascade do |t|
-    t.integer "amount"
-    t.string "measure"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "medication_doses", force: :cascade do |t|
-    t.integer "medication_id"
-    t.integer "dose_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["dose_id"], name: "index_medication_doses_on_dose_id"
-    t.index ["medication_id"], name: "index_medication_doses_on_medication_id"
-  end
+ActiveRecord::Schema.define(version: 2021_03_06_185645) do
 
   create_table "medications", force: :cascade do |t|
     t.string "name"
@@ -34,15 +18,8 @@ ActiveRecord::Schema.define(version: 2021_03_05_200529) do
     t.integer "remaining"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "user_medications", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
-    t.integer "medication_id"
-    t.index ["medication_id"], name: "index_user_medications_on_medication_id"
-    t.index ["user_id"], name: "index_user_medications_on_user_id"
+    t.integer "dose"
   end
 
   create_table "users", force: :cascade do |t|
@@ -59,8 +36,5 @@ ActiveRecord::Schema.define(version: 2021_03_05_200529) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "medication_doses", "doses"
-  add_foreign_key "medication_doses", "medications"
-  add_foreign_key "user_medications", "medications"
-  add_foreign_key "user_medications", "users"
+  add_foreign_key "medications", "users"
 end

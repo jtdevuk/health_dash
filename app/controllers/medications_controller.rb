@@ -13,7 +13,8 @@ class MedicationsController < ApplicationController
   end
 
   def create
-    @med = Medication.new(medication_params)    
+    @med = Medication.new(medication_params)
+    @med.user_id = current_user.id 
 
     if @med.save
       redirect_to medications_path
@@ -42,7 +43,7 @@ class MedicationsController < ApplicationController
   end
 
   def medication_params
-    params.require(:medication).permit(:name, :description, :remaining, :user_id)
+    params.require(:medication).permit(:name, :description, :remaining, :user_id, :dose)
   end
 
 end

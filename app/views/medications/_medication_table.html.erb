@@ -4,6 +4,7 @@
     <th>Description</th>
     <th>Dose</th>
     <th>Remaining</th>
+    <th>Supply</th>
     <th></th>
   </header>
   <% @medications.each do |med| %>
@@ -12,6 +13,7 @@
       <td><%= med.description%></td>
       <td><%= med.dose %></td>
       <td><%= med.remaining %></td>
+      <td><%= med.supply(med) %></td>
       <td class="hoverable-row-dark">
         <%= link_to edit_medication_path(med) do %>
           <i class="far fa-edit"></i>

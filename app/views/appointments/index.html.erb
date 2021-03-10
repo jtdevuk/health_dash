@@ -1,3 +1,16 @@
-<%= month_calendar do |date| %>
+<%= month_calendar(events: @appointments) do |date, meetings| %>
   <%= date %>
+
+  <% meetings.each do |meeting| %>
+    <div>
+      <%= meeting.name %>
+    </div>
+  <% end %>
+<% end %>
+
+<%= simple_form_for @new_appointment do |f| %>
+  <%= f.input :name %>
+  <%= f.input :location %>
+  <%= f.input :start_time %>
+  <%= f.submit %>
 <% end %>

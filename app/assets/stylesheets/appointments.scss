@@ -3,8 +3,18 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 .simple-calendar {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   .day {
     padding: 20px;
+    border: 2px solid lightgray;    
+  }
+
+  .day:hover {
+    background-color: lightgreen;
   }
 
   .wday-0 {}
@@ -15,7 +25,9 @@
   .wday-5 {}
   .wday-6 {}
 
-  .today {}
+  .today {
+    background-color: lightblue;
+  }
   .past {}
   .future {}
 
@@ -25,5 +37,7 @@
   .next-month { }
   .current-month {}
 
-  .has-events {}
+  .has-events {
+    background-color: lightgoldenrodyellow;
+  }
 }

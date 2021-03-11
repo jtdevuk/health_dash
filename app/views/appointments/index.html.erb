@@ -9,11 +9,5 @@
   <% end %>
 <% end %>
 
-<%= simple_form_for @new_appointment do |f| %>
-  <%= f.input :name %>
-  <%= f.input :location %>
-  <%= f.input :start_time %>
-  <%= f.submit %>
-<% end %>
-
+<%= link_to "Add a new appointment", new_appointment_path %>
 <%#= appointment.start_time.strftime("%H:%M") %>

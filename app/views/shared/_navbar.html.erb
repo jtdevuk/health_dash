@@ -1,15 +1,17 @@
 <div class="navbar">
       <div id="logo">
-        <i class="fas fa-heartbeat"></i>
+        <%= link_to root_path do %>
+          <i class="fas fa-heartbeat"></i>
+        <% end %>
       </div>
       <div id="title">
         HealthDash
       </div>
       <div id="navbar-links">
       <ul>
-        <a href="#"><li><%= link_to "Appointments", appointments_path %></li></a>
-        <a href="#"><li><%= link_to "Medications", medications_path %></li></a>
-        <a href="#"><li><%= link_to "Records", "#" %></li></a>
+        <li><%= link_to "Appointments", appointments_path %></li>
+        <li><%= link_to "Medications", medications_path %></li>
+        <li><%= link_to "Records", "#" %></li>
       </ul>      
       </div>
       <a href="#"><li><div class="avatar"><i class="far fa-user"></i></div></li></a>

@@ -1,3 +1,52 @@
 // Place all the styles related to the appointments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.simple-calendar {
+  margin-top: 50px;
+  .day {}
+
+  .wday-0 {}
+  .wday-1 {}
+  .wday-2 {}
+  .wday-3 {}
+  .wday-4 {}
+  .wday-5 {}
+  .wday-6 {}
+
+  .today {
+    background-color: rgba(255, 0, 0, 0.05) !important;
+  }
+  .past {}
+  .future {}
+
+  .start-date {}
+
+  .prev-month {}
+  .next-month { }
+  .current-month {}
+
+  .has-events {
+    box-shadow: 1px 1px black;
+  }
+
+  #appointment-info {
+    margin-top: 3px;
+    font-size: 13px;
+  }
+
+  .calendar-heading {
+    margin-bottom: 30px;
+    font-size: 20px;
+  }
+
+  .calendar-heading a {
+    color: black;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    text-decoration: none;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 1px 1px rgba(255, 0, 0, 0.25);
+  }
+}

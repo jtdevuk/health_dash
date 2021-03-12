@@ -1,4 +1,4 @@
 
 <% @records.each do |record| %>
-  <%= record.letter.representable?%>
+  <embed src="<%= url_for record.letter %>" width="600px" height="500px" />
 <% end %>

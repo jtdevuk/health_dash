@@ -1,0 +1,10 @@
+<div class="centered medication-form">
+  <%= simple_form_for @record do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :appointment_date %>
+    <%= f.input :category %>
+    <%= f.file_field :letter %>
+    <%= f.submit %>
+  <% end %>
+</div>

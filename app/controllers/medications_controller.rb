@@ -18,7 +18,6 @@ class MedicationsController < ApplicationController
 
     if @med.save
       redirect_to medications_path
-      current_user.medications << @med
     else
       render "new"
     end

@@ -30,7 +30,7 @@
     </tr>
     <tr>
       <% if params[:expand].to_i == record.id %>
-        <embed src="<%= url_for record.letter %>" width="600px" height="500px" />    
+        <iframe id="pdf" src="<%= url_for record.letter %>" frameborder="1" scrolling="auto" height="300" width="200" ></iframe>  
       <% end %>
     </tr>
   </tr>

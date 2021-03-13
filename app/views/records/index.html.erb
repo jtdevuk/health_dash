@@ -1,4 +1,1 @@
-
-<% @records.each do |record| %>
-  <embed src="<%= url_for record.letter %>" width="600px" height="500px" />
-<% end %>
+<%= render 'records_table', locals: { medications: @records } %>

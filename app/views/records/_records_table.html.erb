@@ -1,0 +1,40 @@
+<table id="medication-table">
+  <header>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Category</th>
+    <th>Time</th>
+    <th></th>
+  </header>
+  <% @records.each do |record| %>
+    <tr class="hoverable-row">
+      <td><%= record.name %></td>  
+      <td><%= record.description%></td>
+      <td><%= record.appointment_date %></td>
+      <td><%= record.appointment_date %></td>
+      <td class="hoverable-row-dark">
+        <%= link_to records_path(expand: record.id) do %>
+         <i class="fas fa-expand-arrows-alt"></i>
+        <% end %>
+      </td>
+      <td class="hoverable-row-dark">
+        <%= link_to "#" do %>
+          <i class="far fa-edit"></i>
+        <% end %>
+      </td>
+      <td class="hoverable-row-dark">
+        <%= link_to "#", method: :delete, data: { confirm: "Are you sure?" } do %>
+          <i class="far fa-trash-alt"></i>
+        <% end %>
+      </td>         
+    </tr>
+    <tr>
+      <% if params[:expand].to_i == record.id %>
+        <embed src="<%= url_for record.letter %>" width="600px" height="500px" />    
+      <% end %>
+    </tr>
+  </tr>
+  <% end %>
+</table>
+
+<%= link_to "Add another record", new_record_path, class: "centered"%>

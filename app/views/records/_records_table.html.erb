@@ -20,12 +20,12 @@
         <% end %>
       </td>
       <td class="hoverable-row-dark">
-        <%= link_to "#" do %>
+        <%= link_to edit_record_path(record) do %>
           <i class="far fa-edit"></i>
         <% end %>
       </td>
       <td class="hoverable-row-dark">
-        <%= link_to "#", method: :delete, data: { confirm: "Are you sure?" } do %>
+        <%= link_to  record_path(record), method: :delete, data: { confirm: "Are you sure?" } do %>
           <i class="far fa-trash-alt"></i>
         <% end %>
       </td>         

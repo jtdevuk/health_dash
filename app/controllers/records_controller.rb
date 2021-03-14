@@ -1,5 +1,7 @@
 class RecordsController < ApplicationController
 
+  before_action :set_record, only: [:destroy, :show, :edit, :update]
+
   def index
     @records = Record.all
   end
@@ -20,11 +22,31 @@ class RecordsController < ApplicationController
     end
   end
 
+  def update    
+    if @record.update(record_params)
+      redirect_to records_path
+    else
+      render "edit"
+    end
+  end
+  
+
+  def destroy
+    @record.destroy
+    redirect_to records_path
+  end
+
   def show
-    @record = Record.find(params[:id])
+  end
+
+  def edit
   end
   
   private
+
+  def set_record
+    @record = Record.find(params[:id])
+  end
 
   def record_params
     params.require(:record).permit(:user_id, :name, :description, :category, :appointment_date, :record)

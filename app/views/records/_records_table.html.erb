@@ -3,17 +3,19 @@
     <th>Name</th>
     <th>Description</th>
     <th>Category</th>
-    <th>Time</th>
+    <th>Date</th>
+    <th></th>
+    <th></th>
     <th></th>
   </header>
   <% @records.each do |record| %>
     <tr class="hoverable-row">
       <td><%= record.name %></td>  
       <td><%= record.description%></td>
-      <td><%= record.appointment_date %></td>
-      <td><%= record.appointment_date %></td>
+      <td><%= record.category %></td>
+      <td><%= record.appointment_date.strftime("%d %b %Y") %></td>
       <td class="hoverable-row-dark">
-        <%= link_to records_path(expand: record.id) do %>
+        <%= link_to record_path(record) do %>
          <i class="fas fa-expand-arrows-alt"></i>
         <% end %>
       </td>
@@ -27,12 +29,7 @@
           <i class="far fa-trash-alt"></i>
         <% end %>
       </td>         
-    </tr>
-    <tr>
-      <% if params[:expand].to_i == record.id %>
-        <iframe id="pdf" src="<%= url_for record.letter %>" frameborder="1" scrolling="auto" height="300" width="200" ></iframe>  
-      <% end %>
-    </tr>
+    </tr>    
   </tr>
   <% end %>
 </table>

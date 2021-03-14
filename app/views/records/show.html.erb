@@ -1,0 +1,6 @@
+<h1 class="centered records-h1"><%= @record.name %></h1>
+<h3 class="centered records-h3"><%= @record.description %></h3>
+<div id="iframe-container">
+  <iframe id="pdf" src="<%= url_for @record.letter %>" frameborder="1" scrolling="auto"></iframe>  
+</div>
+    

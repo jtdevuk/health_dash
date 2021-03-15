@@ -30,3 +30,12 @@
   font-weight: 100;
   margin-bottom: 30px;
 }
+
+#records-filter-bar {
+  display: flex;
+  justify-content: flex-start;
+
+  p {
+    padding: 10px;
+  }
+}

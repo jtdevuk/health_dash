@@ -31,7 +31,7 @@ class MedicationsController < ApplicationController
     redirect_to medications_path
   end
 
-  def update    
+  def update
     if @med.update(medication_params)
       redirect_to medications_path
       current_user.medications << @med

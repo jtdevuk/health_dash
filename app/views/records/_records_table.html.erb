@@ -1,19 +1,4 @@
 <table id="medication-table">
-<h1 class="centered records-h1">Your Health Records</h1>
-<div id="records-filter-bar">
-<div>
-  <p>Filter:</p>
-</div>
- <div>
-   <p><%= link_to "Show all", records_path %></p>
- </div> 
-  <% @records.each do |record| %>
-    <div>
-      <p><%= link_to record.category, records_path(filter: record.category) %></p>
-    </div>
-  <% end %> 
-</div>
-
   <header>
     <th>Name</th>
     <th>Description</th>

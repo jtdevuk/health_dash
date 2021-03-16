@@ -9,4 +9,8 @@ class Record < ApplicationRecord
       Record.all
     end
   end
+
+  def self.get_categories
+    Record.all.map { |record| record.category }
+  end
 end

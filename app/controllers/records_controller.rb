@@ -4,6 +4,7 @@ class RecordsController < ApplicationController
 
   def index
     @records = Record.filter(params[:filter])
+    @categories = Record.get_categories
   end
 
   def new

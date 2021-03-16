@@ -1,1 +1,16 @@
+<h1 class="centered records-h1">Your Health Records</h1>
+<div id="records-filter-bar">
+<div>
+  <p>Filter:</p>
+</div>
+ <div>
+   <p><%= link_to "Show all", records_path %></p>
+ </div> 
+  <% @categories.each do |category| %>
+    <div>
+      <p><%= link_to category, records_path(filter: category) %></p>
+    </div>
+  <% end %> 
+</div>
+
 <%= render 'records_table', locals: { medications: @records } %>

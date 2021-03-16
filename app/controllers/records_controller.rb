@@ -3,7 +3,7 @@ class RecordsController < ApplicationController
   before_action :set_record, only: [:destroy, :show, :edit, :update]
 
   def index
-    @records = Record.all
+    @records = Record.filter(params[:filter])
   end
 
   def new

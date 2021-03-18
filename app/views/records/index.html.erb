@@ -4,7 +4,7 @@
   <p>Filter by category:</p>
 </div>
  <div>
-   <p><%= link_to "Show all", records_path if params[:category] %></p>
+   <p><%= link_to "Show all", records_path if params[:category] || params[:start_date] %></p>
  </div> 
   <% @categories.each do |category| %>
     <div>

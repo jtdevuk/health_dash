@@ -5,6 +5,8 @@ class RecordsController < ApplicationController
   def index
     if params[:category]
       @records = Record.filter_by_category(params[:category])
+    elsif params[:start_date] && params[:end_date]
+      @records = Record.filter_by_date(params[:start_date], params[:end_date])
     else
       @records = Record.all
     end

@@ -3,7 +3,11 @@ class RecordsController < ApplicationController
   before_action :set_record, only: [:destroy, :show, :edit, :update]
 
   def index
-    @records = Record.filter(params[:filter])
+    if params[:category]
+      @records = Record.filter_by_category(params[:category])
+    else
+      @records = Record.all
+    end
     @categories = Record.get_categories
   end
 

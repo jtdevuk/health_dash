@@ -39,7 +39,7 @@ $light-red: rgba(255, 0, 0, 0.05);
 
   a:hover {
     border-bottom: 2px solid white;
-  }  
+  }
 }
 
 .avatar {
@@ -56,6 +56,7 @@ $light-red: rgba(255, 0, 0, 0.05);
 
 #logo {  
   width: 150px;
+  flex-shrink: 0;
   font-size: 65px;
 }
 

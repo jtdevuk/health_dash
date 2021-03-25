@@ -5,14 +5,17 @@
   <p><%= "You don't have any appointments in the month shown" %></p>
 <% end %>
 
-<%=  %>
 
 <%= month_calendar(events: @appointments) do |date, appointments| %>
   <%= date.day %>
 
-  <% appointments.each do |appointment| %>
+  <% appointments.each do |appointment| %>    
     <div id="appointment-info">
-      <%= appointment.name %>
+      <% if appointment.record_id %>
+        <%= link_to appointment.name, record_path(appointment.record_id) %>
+      <% else %>
+        <%= appointment.name %>      
+      <% end %>
       <hr>    
     </div>
   <% end %>

@@ -1,5 +1,6 @@
 class Record < ApplicationRecord
-  belongs_to :user
+  belongs_to :user 
+  has_one :appointment
   has_one_attached :letter
 
   validates :name, :description, presence: true
@@ -9,5 +10,5 @@ class Record < ApplicationRecord
 
   def self.get_categories
     Record.all.map { |record| record.category }
-  end
+  end  
 end

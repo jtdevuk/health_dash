@@ -17,12 +17,23 @@ class RecordsController < ApplicationController
     @record = Record.new
   end
 
-  def create
+  def create    
     @record = Record.new(record_params)
     @record.user_id = current_user.id    
     @record.letter.attach(params[:record][:letter])
+
+    if params[:other][:link_to_calendar] != nil
+      name, description = @record.name, @record.description
+      record_id, user_id = @record.id, current_user.id
+      year = params["record"]["appointment_date(1i)"].to_i
+      month = params["record"]["appointment_date(2i)"].to_i
+      day = params["record"]["appointment_date(3i)"].to_i
+      appointment = Appointment.create!(name: @record.name, location: @record.description, start_time: DateTime.new(year, month, day), record_id: record_id, user_id: user_id)
+      current_user.appointments << appointment
+      @record.appointment = appointment
+    end
     
-    if @record.save
+    if @record.save!
       redirect_to records_path
     else
       render "new"

@@ -16,17 +16,19 @@
       <td><%= record.appointment_date.strftime("%d %b %Y") %></td>
       <td class="hoverable-row-dark">
         <%= link_to record_path(record) do %>
-         <i class="fas fa-expand-arrows-alt"></i>
+         <%# <i class="fas fa-expand-arrows-alt"></i> %>
+         <%# <i class="fas fa-book-medical"></i> %>
+         <%= fa_icon "book" %>
         <% end %>
       </td>
       <td class="hoverable-row-dark">
         <%= link_to edit_record_path(record) do %>
-          <i class="far fa-edit"></i>
+          <%= fa_icon "edit" %>
         <% end %>
       </td>
       <td class="hoverable-row-dark">
         <%= link_to  record_path(record), method: :delete, data: { confirm: "Are you sure?" } do %>
-          <i class="far fa-trash-alt"></i>
+          <%= fa_icon "trash-alt" %>
         <% end %>
       </td>         
     </tr>    

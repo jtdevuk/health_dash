@@ -16,8 +16,6 @@
       <td><%= record.appointment_date.strftime("%d %b %Y") %></td>
       <td class="hoverable-row-dark">
         <%= link_to record_path(record) do %>
-         <%# <i class="fas fa-expand-arrows-alt"></i> %>
-         <%# <i class="fas fa-book-medical"></i> %>
          <%= fa_icon "book" %>
         <% end %>
       </td>

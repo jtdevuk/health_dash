@@ -15,3 +15,9 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+import { appointmentInfo } from '../components/calendar'
+
+document.addEventListener('turbolinks:load', () => {
+  appointmentInfo()
+});

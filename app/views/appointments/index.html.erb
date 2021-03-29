@@ -10,9 +10,10 @@
   <%= date.day %>
 
   <% appointments.each do |appointment| %>    
-    <div id="appointment-info">
+    <div class="appointment-info">
       <% if appointment.record_id %>
-        <%= link_to appointment.name, record_path(appointment.record_id) %>
+        <%#= link_to appointment.name, record_path(appointment.record_id) %>
+        <%= appointment.name %>
       <% else %>
         <%= appointment.name %>      
       <% end %>

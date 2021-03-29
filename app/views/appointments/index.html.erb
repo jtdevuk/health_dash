@@ -6,13 +6,15 @@
   <p><%= "You don't have any appointments in the month shown" %></p>
 <% end %>
 
+<div id="calendar-modal" class="hidden">
+  
+</div>
 <%= month_calendar(events: @appointments) do |date, appointments| %>
   <%= date.day %>
 
   <% appointments.each do |appointment| %>    
     <div class="appointment-info">
       <% if appointment.record_id %>
-        <%#= link_to appointment.name, record_path(appointment.record_id) %>
         <%= appointment.name %>
       <% else %>
         <%= appointment.name %>      

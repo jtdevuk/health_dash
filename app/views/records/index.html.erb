@@ -27,7 +27,7 @@
 
   <%= render 'records_table', locals: { medications: @records } %>
 <% else %>
-    <h3>You don't have any records saved</h3>
+    <p>You don't have any records saved</p>
     <% @path = new_record_path %>
     <%= render 'shared/add_item_card', locals: {path: @path} %>
 <% end %>

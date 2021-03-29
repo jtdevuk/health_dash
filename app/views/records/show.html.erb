@@ -1,4 +1,12 @@
-<h1 class="centered records-h1"><%= @record.name %></h1>
+<div id="records-header">
+    <h1 class="centered records-h1"><%= @record.name %></h1>
+    <%= link_to records_path do %>
+      <div class="close-button">
+        X
+      </div>
+    <% end %>
+  
+</div>
 <h3 class="centered records-h3"><%= @record.description %></h3>
 
 <% if @record.letter.attached? %>

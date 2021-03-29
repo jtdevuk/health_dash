@@ -1,7 +1,8 @@
-<h1><%= "#{current_user.first_name} #{current_user.last_name}'s medications" %></h1>
+<h1 class="centered records-h1"><%= "Your Medications" %></h1>
 <% if current_user.medications.any? %>
   <%= render 'medication_table', locals: { medications: @medications } %>
 <% else %>
-    <% @path = new_medication_path %>
-    <%= render 'shared/add_item_card', locals: {path: @path} %>  
+  <p>You don't have any medications saved</p>
+  <% @path = new_medication_path %>
+  <%= render 'shared/add_item_card', locals: {path: @path} %>  
 <% end %>

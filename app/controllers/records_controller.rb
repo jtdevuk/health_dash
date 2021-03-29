@@ -35,7 +35,7 @@ class RecordsController < ApplicationController
       @record.appointment = appointment
     end
     
-    if @record.save!
+    if @record.save
       redirect_to records_path
     else
       render "new"

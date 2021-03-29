@@ -1,27 +1,33 @@
 <h1 class="centered records-h1">Your Health Records</h1>
-<div id="records-filter-bar">
-<div>
-  <p>Filter by category:</p>
-</div>
- <div>
-   <p><%= link_to "Show all", records_path if params[:category] || params[:start_date] %></p>
- </div> 
-  <% @categories.each do |category| %>
-    <div>
-      <p><%= link_to category, records_path(category: category) %></p>
-    </div>
-  <% end %> 
-</div>
-<div id="records-date-section">
-    <p>Filter by date range:</p>
-    <%= form_tag(records_path, method: :get) do %>
-      <%= label_tag(:start_date, "Start date:") %>
-      <%= date_field_tag(:start_date) %>
-      <%= label_tag(:end_date, "End date:") %>
-      <%= date_field_tag(:end_date) %>
-      <%= submit_tag "Filter" %>
-    <% end %>
-    
-</div>
+<% if @records.any? %>
+  <div id="records-filter-bar">
+  <div>
+    <p>Filter by category:</p>
+  </div>
+  <div>
+    <p><%= link_to "Show all", records_path if params[:category] || params[:start_date] %></p>
+  </div> 
+    <% @categories.each do |category| %>
+      <div>
+        <p><%= link_to category, records_path(category: category) %></p>
+      </div>
+    <% end %> 
+  </div>
+  <div id="records-date-section">
+      <p>Filter by date range:</p>
+      <%= form_tag(records_path, method: :get) do %>
+        <%= label_tag(:start_date, "Start date:") %>
+        <%= date_field_tag(:start_date) %>
+        <%= label_tag(:end_date, "End date:") %>
+        <%= date_field_tag(:end_date) %>
+        <%= submit_tag "Filter" %>
+      <% end %>
+      
+  </div>
 
-<%= render 'records_table', locals: { medications: @records } %>
+  <%= render 'records_table', locals: { medications: @records } %>
+<% else %>
+    <h3>You don't have any records saved</h3>
+    <% @path = new_record_path %>
+    <%= render 'shared/add_item_card', locals: {path: @path} %>
+<% end %>

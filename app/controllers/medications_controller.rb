@@ -3,7 +3,6 @@ class MedicationsController < ApplicationController
   before_action :set_medication, only: [:edit, :update, :destroy, :supply]
 
   def index
-    @user = current_user
     @medications = current_user.medications
     @new_med = Medication.new
   end

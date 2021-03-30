@@ -1,9 +1,12 @@
 <div id="records-header">
-    <h1 class="centered records-h1"><%= @record.name %></h1>
+      <h1 class="centered records-h1"><%= @record.name %></h1>
+    <% if @record.letter.attached? %>
     <%= link_to records_path do %>
       <div class="close-button">
         X
       </div>
+    <% end %>
+    
     <% end %>
   
 </div>
@@ -14,6 +17,6 @@
   <iframe id="pdf" src="<%= url_for @record.letter %>" frameborder="1" scrolling="auto"></iframe>  
 </div>
 <% else %>
-<h3>No document associated with this record, would you like to add one?</h3>
-  <%= link_to "Add a document", edit_record_path(@record) %>
+<p>No document associated with this record, would you like to add one?</p>
+  <%= link_to "Update record", edit_record_path(@record) %>
 <% end %>

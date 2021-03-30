@@ -22,7 +22,7 @@ class RecordsController < ApplicationController
     @record.user_id = current_user.id    
     @record.letter.attach(params[:record][:letter])
 
-    if params[:other][:link_to_calendar] != nil
+    if params[:other][:link_to_calendar] == "1"
       year = params["record"]["appointment_date(1i)"].to_i
       month = params["record"]["appointment_date(2i)"].to_i
       day = params["record"]["appointment_date(3i)"].to_i
@@ -30,12 +30,15 @@ class RecordsController < ApplicationController
                                         location: @record.description,
                                         start_time: DateTime.new(year, month, day),
                                         record_id: @record.id,
-                                        user_id: current_user.id)
+                                        user_id: @record.user_id)    
       current_user.appointments << appointment
       @record.appointment = appointment
+      
     end
-    
-    if @record.save
+                                  
+    # create_appointment if params[:other][:link_to_calendar] == "1"      
+        
+    if @record.save!
       redirect_to records_path
     else
       render "new"
@@ -71,4 +74,17 @@ class RecordsController < ApplicationController
   def record_params
     params.require(:record).permit(:user_id, :name, :description, :category, :appointment_date, :record, :appointment_id)
   end
+
+  # def create_appointment
+  #   year = params["record"]["appointment_date(1i)"].to_i
+  #   month = params["record"]["appointment_date(2i)"].to_i
+  #   day = params["record"]["appointment_date(3i)"].to_i
+  #   appointment = Appointment.create!(name: @record.name,
+  #                                   location: @record.description,
+  #                                   start_time: DateTime.new(year, month, day),
+  #                                   record_id: @record.id,
+  #                                   user_id: current_user.id)
+  #     current_user.appointments << appointment
+  #     @record.appointment = appointment
+  # end
 end

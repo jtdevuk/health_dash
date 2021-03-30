@@ -25,7 +25,8 @@
         <% end %>
       </td>
       <td class="hoverable-row-dark">
-        <%= link_to  record_path(record), method: :delete, data: { confirm: "Are you sure?" } do %>
+        <%= link_to record_path(record), method: :delete, data: { confirm: "Are you sure?" } do %>
+          <% record.appointment.destroy if record.appointment %>
           <%= fa_icon "trash-alt" %>
         <% end %>
       </td>         

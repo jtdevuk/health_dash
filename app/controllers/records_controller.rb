@@ -22,7 +22,7 @@ class RecordsController < ApplicationController
     @record.user_id = current_user.id    
     @record.letter.attach(params[:record][:letter])
 
-    if params[:other][:link_to_calendar] != nil
+    if params[:other][:link_to_calendar] == "1"
       year = params["record"]["appointment_date(1i)"].to_i
       month = params["record"]["appointment_date(2i)"].to_i
       day = params["record"]["appointment_date(3i)"].to_i

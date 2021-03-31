@@ -1,9 +1,10 @@
 <div class="centered medication-form">
   <%= simple_form_for @appointment do |f| %>
-  <%= f.input :name %>
-  <%= f.input :location %>
-  <%= f.input :start_time %>
-  <%= f.input :description %>
-  <%= f.submit %>
-<% end %>
+    <%= f.input :name %>
+    <%= f.input :location %>
+    <%= f.input :start_time, as: :string, input_html: {class: "datepicker"} %>  
+    <%= f.input :description %>
+    <%= f.submit %>
+  <% end %>
 </div>
+ 

@@ -1,4 +1,4 @@
-<h1 class="centered records-h1"><%= "Your Medications" %></h1>
+<h1 class="centered heading"><%= "Your Medications" %></h1>
 <% if current_user.medications.any? %>
   <%= render 'medication_table', locals: { medications: @medications } %>
 <% else %>

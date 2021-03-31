@@ -1,2 +1,11 @@
-<h1 class="centered heading"><%= @appointment.name %></h1>
-<%= link_to "Back to Calendar", appointments_path %>
+<div class="appointment-card">
+  <h4>Name</h4>
+  <p><%= @appointment.name %></p>
+  <h4>Location</h4>
+  <p><%= @appointment.location %></p>
+  <h4>Date and Time</h4>
+  <p><%= @appointment.start_time.strftime("%d %B %Y, %H:%M") %></p>
+  <h4>Description</h4>
+  <h4>Related documents</h4>
+</div>
+<%= link_to "Back to Calendar", appointments_path, class: "btn" %>

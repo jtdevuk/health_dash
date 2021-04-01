@@ -1,13 +1,13 @@
-<div class="centered medication-form">
+<div class="centered basic-form">
   <%= simple_form_for @record do |f| %>
     <%= f.input :name %>
     <%= f.input :description %>
-    <%= f.input :appointment_date %>
+    <%= f.input :appointment_date, as: :string, input_html: {class: "date-picker"} %>
     <%= f.input :category %>
     <%= simple_fields_for :other do |o| %>
       <%= o.input :link_to_calendar, as: :boolean, label: 'Add appointment to calendar?' %>
     <% end %>
     <%= f.file_field :letter %>
-    <%= f.submit %>
+    <%= f.button :submit %>
   <% end %>
 </div>

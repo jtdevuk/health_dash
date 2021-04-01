@@ -59,3 +59,20 @@
   border-radius: 15px;
   font-size: 40px;
 }
+
+#new_record {
+  #record_description {
+      width: 185px;
+      border-radius: 9px;
+      border: 1px solid lightgrey;
+      resize: none;
+    }
+  
+    .record_description {
+      height: 90px;
+    }
+  
+    .checkbox {
+      margin: 0 auto;
+    }
+}

@@ -1,8 +1,8 @@
 import flatpickr from "flatpickr";
 
 const initFlatpickr = () => {
-  flatpickr(".datepicker", {enableTime: true});
-  flatpickr(".date-only", {});
+  flatpickr(".date-time-picker", {enableTime: true});
+  flatpickr(".date-picker", {});
 }
 
 export { initFlatpickr };

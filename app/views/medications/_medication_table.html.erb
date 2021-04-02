@@ -6,6 +6,7 @@
     <th>Remaining</th>
     <th>Supply</th>
     <th></th>
+    <th></th>
   </header>
   <% @medications.each do |med| %>
     <tr class="hoverable-row">
@@ -18,10 +19,12 @@
         <%= link_to edit_medication_path(med) do %>
           <i class="far fa-edit"></i>
         <% end %>
+      </td>
+      <td class="hoverable-row-dark">
         <%= link_to medication_path(med), method: :delete, data: { confirm: "Are you sure?" } do %>
           <i class="far fa-trash-alt"></i>
         <% end %>
-      </td>      
+      </td>           
     </tr>
     <tr>
       </tr>

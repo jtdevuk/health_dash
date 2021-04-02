@@ -7,6 +7,7 @@ class Medication < ApplicationRecord
     today = Date.today
     days_passed = (today - last_updated).to_i + 1
     med_used = med.dose * days_passed
-    "#{med.remaining / med_used} days"
+    remaining = med.remaining / med_used
+    remaining > 1 ? "#{remaining} days" : "#{remaining} day"
   end
 end

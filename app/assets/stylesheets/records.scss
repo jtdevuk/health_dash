@@ -70,11 +70,16 @@
   
     .record_description {
       height: 90px;
-    }
-  
-    .checkbox {
-      margin: 0 auto;
-    }
+    }    
+}
+
+.new_record, .edit_record {
+  .checkbox {
+    margin: 0 auto;
+  }
+  .file {
+    height: 20px;
+  }
 }
 
 .filter-field {

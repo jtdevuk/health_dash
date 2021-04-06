@@ -7,5 +7,12 @@
   <p><%= @appointment.start_time.strftime("%d %B %Y, %H:%M") %></p>
   <h4>Description</h4>
   <h4>Related documents</h4>
+  
+  <% if @appointment.record && @appointment.record.letter.attached? %>
+    <%= link_to "View document", record_path(@appointment.record) %>
+  <% else %>
+      <p>This appointment has no related documents</p>
+  <% end %>
+  
 </div>
 <%= link_to "Back to Calendar", appointments_path, class: "btn" %>

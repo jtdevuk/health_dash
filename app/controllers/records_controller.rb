@@ -34,6 +34,7 @@ class RecordsController < ApplicationController
   def update    
     if @record.update(record_params)
       @record.letter.attach(params[:record][:letter])
+      add_to_calendar if params[:other][:link_to_calendar] == "1"
       redirect_to records_path
     else
       render "edit"
@@ -57,13 +58,21 @@ class RecordsController < ApplicationController
     year = params["record"]["appointment_date(1i)"].to_i
     month = params["record"]["appointment_date(2i)"].to_i
     day = params["record"]["appointment_date(3i)"].to_i
-    appointment = Appointment.create(name: @record.name,
-                                      location: @record.description,
-                                      start_time: @record.appointment_date,
-                                      record_id: @record.id,
-                                      user_id: current_user.id)
-    current_user.appointments << appointment
-    @record.appointment = appointment
+    if @record.appointment
+      @record.appointment.update({name: @record.name,
+                                location: @record.description,
+                                start_time: @record.appointment_date,
+                                record_id: @record.id,
+                                user_id: current_user.id})
+    else
+      appointment = Appointment.create(name: @record.name,
+                                        location: @record.description,
+                                        start_time: @record.appointment_date,
+                                        record_id: @record.id,
+                                        user_id: current_user.id)
+      current_user.appointments << appointment
+      @record.appointment = appointment
+    end
   end
 
   def set_record

@@ -17,14 +17,12 @@
       <p>Filter by date range:</p>
       <%= form_tag(records_path, method: :get) do %>
         <%= label_tag(:start_date, "Start date:") %>
-        <%= date_field_tag(:start_date, nil, class: "date-only") %>
+        <%= date_field_tag(:start_date, nil, class: "date-picker filter-field", placeholder: DateTime.now.strftime("%Y-%m-%d %H:%M")) %>
         <%= label_tag(:end_date, "End date:") %>
-        <%= date_field_tag(:end_date, nil, class: "date-only") %>
-        <%= submit_tag "Filter" %>
-      <% end %>
-      
+        <%= date_field_tag(:end_date, nil, class: "date-picker filter-field", placeholder: DateTime.now.strftime("%Y-%m-%d %H:%M")) %>
+        <%= submit_tag "Filter", class: "btn" %>
+      <% end %>      
   </div>
-
   <%= render 'records_table', locals: { medications: @records } %>
 <% else %>
     <p>You don't have any records saved</p>

@@ -59,7 +59,7 @@ class RecordsController < ApplicationController
     day = params["record"]["appointment_date(3i)"].to_i
     appointment = Appointment.create(name: @record.name,
                                       location: @record.description,
-                                      start_time: DateTime.new(year, month, day),
+                                      start_time: @record.appointment_date,
                                       record_id: @record.id,
                                       user_id: current_user.id)
     current_user.appointments << appointment

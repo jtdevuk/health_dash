@@ -7,7 +7,9 @@
   <%= simple_form_for @appointment do |f| %>
     <%= f.input :name %>
     <%= f.input :location %>
-    <%= f.input :start_time, as: :string, input_html: {class: "date-time-picker"} %>  
+    <%= f.input :start_time, as: :string, input_html: {class: "date-time-picker"}, 
+                                                       label: "Date and Time", 
+                                                       placeholder: DateTime.now.strftime("%Y-%m-%d %H:%M") %>
     <%= f.input :description %>
     <%= f.button :submit %>
   <% end %>

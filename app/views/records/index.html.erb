@@ -1,17 +1,21 @@
 <h1 class="centered heading">Your Health Records</h1>
-<% if @records.any? %>
+<% if params[:start_date] && @records.length == 0 %>  
+  <p>No records found in selected date range</p>
+    <p><%= link_to "Show all records", records_path %></p>
+<% elsif @records.any? %>
   <div id="records-filter-bar">
   <div>
     <p>Filter by category:</p>
   </div>
   <div>
-    <p><%= link_to "Show all", records_path if params[:category] || params[:start_date] %></p>
+    <p><%= link_to "Show all records", records_path if params[:category] || params[:start_date] %></p>
   </div> 
-    <% @categories.each do |category| %>
+      <% @categories.each do |category| %>
       <div>
         <p><%= link_to category, records_path(category: category) %></p>
       </div>
-    <% end %> 
+    <% end %>
+    
   </div>
   <div id="records-date-section">
       <p>Filter by date range:</p>

@@ -11,11 +11,10 @@
     <%= f.input :category %>
     <%= simple_fields_for :other do |o| %>
       <% if @record.id %>
-        <%= o.input :link_to_calendar, as: :boolean, label: "Keep appointment in calendar?" %>
+        <%= o.input :link_to_calendar, as: :boolean, label: "Update appointment in calendar?" %>
       <% else %>
         <%= o.input :link_to_calendar, as: :boolean, label: "Add appointment to calendar?" %>
-      <% end %>
-      
+      <% end %>      
     <% end %>
     <%= f.input :letter, label: 'PDF file:', input_html: {accept: ('application/pdf') } %>    
     <%= f.button :submit %>

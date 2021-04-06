@@ -1,4 +1,9 @@
 <div class="centered basic-form">
+ <% if @appointment.id %>
+    <h3>Update Appointment</h3>
+  <% else %>
+    <h3>Add a New Appointment</h3>
+  <% end %>  
   <%= simple_form_for @appointment do |f| %>
     <%= f.input :name %>
     <%= f.input :location %>

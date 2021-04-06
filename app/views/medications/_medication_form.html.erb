@@ -1,5 +1,9 @@
-<div class="centered basic-form">
-  <h3>Add a new medication</h3>
+<div class="centered basic-form">  
+  <% if @med.id %>
+    <h3>Update Medication</h3>
+  <% else %>
+    <h3>Add a New Medication</h3>
+  <% end %>  
   <%= simple_form_for @med do |f| %>
   <%= f.input :name %>
   <%= f.input :description %>

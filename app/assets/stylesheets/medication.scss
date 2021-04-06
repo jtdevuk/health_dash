@@ -104,16 +104,15 @@
   color: red;
 }
 
-
 #new_medication {
-  .medication_description {
-    height: 90px;
-  }
   
   #medication_description {
-    width: 170px;
+    width: 185px;
     border-radius: 9px;
     border: 1px solid lightgrey;
     resize: none;
+  }
+  .medication_description {
+    height: 90px;
   }
 }

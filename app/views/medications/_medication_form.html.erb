@@ -1,8 +1,8 @@
 <div class="centered basic-form">
-<h3>Add a new medication</h3>
+  <h3>Add a new medication</h3>
   <%= simple_form_for @med do |f| %>
   <%= f.input :name %>
-  <%= f.input :description, id: "medication_description_container" %>
+  <%= f.input :description %>
   <%= f.input :dose %>
   <%= f.input :remaining %>
   <%= f.button :submit %>

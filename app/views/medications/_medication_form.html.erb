@@ -7,8 +7,8 @@
   <%= simple_form_for @med do |f| %>
     <%= f.input :name %>
     <%= f.input :description %>
-    <%= f.input :dose %>
-    <%= f.input :remaining %>
+    <%= f.input :dose, input_html: { min: 0 } %>
+    <%= f.input :remaining, input_html: { min: 0 } %>
     <%= f.button :submit %>
   <% end %>
 </div>

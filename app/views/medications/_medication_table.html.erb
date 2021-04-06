@@ -13,8 +13,8 @@
       <td><%= med.name %></td>  
       <td><%= med.description%></td>
       <td><%= med.dose %></td>
-      <td><%= med.remaining %></td>
-      <td><%= med.supply(med) %></td>
+      <td><%= med.calc_remaining(med) %></td>
+      <td><%= med.calc_supply(med) %></td>
       <td class="hoverable-row-dark">
         <%= link_to edit_medication_path(med) do %>
           <i class="far fa-edit"></i>

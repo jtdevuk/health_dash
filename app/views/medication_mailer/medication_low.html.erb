@@ -4,6 +4,8 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Your meds are running low!</h1>
+    <h3>Hi, <%= @user.first_name %></h3>    
+    <p>You only have 7 days of <%= @low_med %> remaining.</p> 
+    <p>Don't forget to order more and update the amount.</p>
   </body>
 </html>

@@ -1,0 +1,2 @@
+class MedicationMailer < ApplicationMailer
+end

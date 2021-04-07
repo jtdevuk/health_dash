@@ -81,6 +81,7 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.4.4)
+    dotenv (2.7.6)
     erubi (1.10.0)
     ffi (1.14.2)
     font-awesome-rails (4.7.0.5)
@@ -233,6 +234,7 @@ DEPENDENCIES
   byebug
   capybara
   devise
+  dotenv
   font-awesome-rails
   jbuilder (~> 2.7)
   listen (~> 3.2)

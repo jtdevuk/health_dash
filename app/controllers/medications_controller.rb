@@ -16,6 +16,7 @@ class MedicationsController < ApplicationController
     @med.user_id = current_user.id 
 
     if @med.save
+      MedicationMailer.with(user: @user).medication_low.deliver_later
       redirect_to medications_path
     else
       render "new"

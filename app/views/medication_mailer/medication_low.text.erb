@@ -1,3 +1,4 @@
 Hi, <%= @user.first_name %>
 
-You only have 7 days of <%= @low_med %> remaining. Don't forget to order more.
+You only have 7 days of <%= @low_med %> remaining.
+Don't forget to order more and update the amount <%= link_to "here", edit_medication_url(@med) %>

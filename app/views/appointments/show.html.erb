@@ -1,18 +1,31 @@
 <div class="appointment-card">
+  <div class="appointment-info">
   <h4>Name</h4>
   <p><%= @appointment.name %></p>
-  <h4>Location</h4>
-  <p><%= @appointment.location %></p>
-  <h4>Date and Time</h4>
-  <p><%= @appointment.start_time.strftime("%d %B %Y, %H:%M") %></p>
-  <h4>Description</h4>
-  <h4>Related documents</h4>
-  
-  <% if @appointment.record && @appointment.record.letter.attached? %>
-    <%= link_to "View document", record_path(@appointment.record) %>
-  <% else %>
-      <p>This appointment has no related documents</p>
-  <% end %>
-  
+  </div>
+  <div class="appointment-info">
+    <h4>Location</h4>
+    <p><%= @appointment.location %></p>
+  </div>
+  <div class="appointment-info">
+    <h4>Date and Time</h4>
+    <p><%= @appointment.start_time.strftime("%d %B %Y, %H:%M") %></p>
+  </div>
+  <div class="appointment-info">
+    <h4>Description</h4>
+    <p><%= @appointment.description %></p>
+  </div>
+  <div class="appointment-info">
+    <h4>Related documents</h4>
+    <% if @appointment.record && @appointment.record.letter.attached? %>
+      <%= link_to "View document", record_path(@appointment.record) %>
+    <% else %>
+        <p>This appointment has no related documents</p>
+    <% end %>
+  </div>  
+  <div class="btn-container">
+    <%= link_to "Back to Calendar", appointments_path, class: "btn" %>
+    <%= link_to "Edit Appointment", edit_appointment_path(@appointment), class: "btn" %>
+    <%= link_to "Delete Appointment", appointment_path(@appointment), class: "btn delete", method: :delete, data: { confirm: "Are you sure?" } %>
+  </div>
 </div>
-<%= link_to "Back to Calendar", appointments_path, class: "btn" %>

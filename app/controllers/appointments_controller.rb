@@ -1,7 +1,7 @@
 class AppointmentsController < ApplicationController
+  before_action :set_appointment, only: [:show, :edit, :update, :destroy]
   def index
-    @new_appointment = Appointment.new
-    
+    @new_appointment = Appointment.new    
     start_date = params.fetch(:start_date, Date.today).to_date
     @appointments = Appointment.where(start_time: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
   end
@@ -21,16 +21,30 @@ class AppointmentsController < ApplicationController
     end
   end
 
-  def show
-    @appointment = Appointment.find(params[:id])
+  def show    
+  end
+
+  def edit
   end
 
   def update
-    @appointment = Appointment.find(params[:id])
-    @appointment.update(appointment_params)
+    if @appointment.update(appointment_params)
+      redirect_to appointment_path(@appointment)
+    else
+      render "edit"
+    end
+  end
+
+  def destroy
+    @appointment.destroy
+    redirect_to appointments_path
   end
 
   private
+
+  def set_appointment
+    @appointment = Appointment.find(params[:id])
+  end
 
   def appointment_params
     params.require(:appointment).permit(:name, :location, :start_time, :record_id, :description)

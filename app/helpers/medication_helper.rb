@@ -1,7 +1,10 @@
 module MedicationHelper
   def calc_supply(med)
     remaining = med.remaining / med.dose
-    MedicationMailer.with(user: current_user, low_med: med.name).medication_low.deliver_later if remaining <= 7
+    if remaining <= 7 && med.low_warning_sent == false
+      MedicationMailer.with(user: current_user, low_med: med.name).medication_low.deliver_later
+      med.update(low_warning_sent: true)
+    end
     remaining
 end
 

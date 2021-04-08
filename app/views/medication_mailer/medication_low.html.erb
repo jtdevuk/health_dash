@@ -5,7 +5,7 @@
   </head>
   <body>
     <h3>Hi, <%= @user.first_name %></h3>    
-    <p>You only have 7 days of <%= @low_med %> remaining.</p> 
-    <p>Don't forget to order more and update the amount.</p>
+    <p>You only have 7 days of <strong><%= @med.name %></strong> remaining.</p> 
+    <p>Don't forget to order more and update the amount <%= link_to "here", edit_medication_url(@med) %></p>
   </body>
 </html>

@@ -32,8 +32,9 @@ class MedicationsController < ApplicationController
 
   def update
     if @med.update(medication_params)
-      redirect_to medications_path
       current_user.medications << @med
+      @med.update(low_warning_sent: false)
+      redirect_to medications_path
     else
       render "edit"
     end

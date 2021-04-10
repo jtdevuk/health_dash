@@ -22,6 +22,10 @@ class AppointmentsController < ApplicationController
   end
 
   def show    
+    @marker = {
+        lat: @appointment.latitude,
+        lng: @appointment.longitude
+  }
   end
 
   def edit

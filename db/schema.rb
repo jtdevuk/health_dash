@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_08_122408) do
+ActiveRecord::Schema.define(version: 2021_04_10_161455) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(version: 2021_04_08_122408) do
     t.integer "record_id"
     t.text "description"
     t.datetime "start_time"
+    t.float "latitude"
+    t.float "longiitude"
     t.index ["record_id"], name: "index_appointments_on_record_id"
     t.index ["user_id"], name: "index_appointments_on_user_id"
   end

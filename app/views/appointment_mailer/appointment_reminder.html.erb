@@ -5,7 +5,10 @@
   </head>
   <body>
     <h3>Hi, <%= @user.first_name %></h3>    
-    <p>You have an appointment coming up on <%= @app.start_time.strftime("%d %b %Y, %H:%M") %> at <%= @app.location %></p> 
+    <p>You have an appointment coming up on <%= @app.start_time.strftime("%d %b %Y, %H:%M") %> at <%= @app.location %></p>    
+    <% if @attachment %>
+      <p>A copy of the appointment letter is attached</p>
+    <% end %>    
     <p>You can view the full details <%= link_to "here", appointment_url(@app) %></p>
   </body>
 </html>

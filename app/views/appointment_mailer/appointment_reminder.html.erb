@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h3>Hi, <%= @user.first_name %></h3>    
+    <p>You have an appointment coming up on <%= @app.start_time.strftime("%d %b %Y, %H:%M") %> at <%= @app.location %></p> 
+    <p>You can view the full details <%= link_to "here", appointment_url(@app) %></p>
+  </body>
+</html>

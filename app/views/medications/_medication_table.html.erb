@@ -9,7 +9,7 @@
     <th></th>
   </header>
   <% @medications.each do |med| %>
-    <% supply = calc_supply(med) %>
+    <% supply = med.calc_supply(med) %>
     <tr class="hoverable-row">
       <td><%= med.name %></td>  
       <td><%= med.description%></td>

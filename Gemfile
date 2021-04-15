@@ -26,7 +26,8 @@ gem 'simple_form'
 gem "simple_calendar", "~> 2.4"
 gem "font-awesome-rails"
 gem 'geocoder', '~> 1.6', '>= 1.6.6'
-gem 'whenever', require: false
+gem 'sidekiq'
+gem 'sidekiq-scheduler'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

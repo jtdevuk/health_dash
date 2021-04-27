@@ -10,7 +10,6 @@
   <%= date.day %>
 
   <% appointments.each do |appointment| %>
-  <% appointment_reminder(appointment) %>  
     <div id="appointment-info">
         <%= link_to appointment.name, appointment_path(appointment) %>
       <hr>    

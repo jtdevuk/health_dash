@@ -1,4 +1,0 @@
-:schedule:  
-  medication:
-    cron: '*/10 * * * * *'
-    class: Medication

@@ -1,9 +1,10 @@
 require 'sidekiq-scheduler'
+require 'rake'
 
 class Medication
   include Sidekiq::Worker
 
   def perform
-    puts User.last
+    rake 'db:migrate'
   end
 end

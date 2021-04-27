@@ -1,9 +1,9 @@
 require 'sidekiq-scheduler'
 
-class HelloWorld
+class Medication
   include Sidekiq::Worker
 
   def perform
-    puts 'Hello world'
+    puts User.last
   end
 end

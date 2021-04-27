@@ -1,4 +1,4 @@
-:schedule:
-  hello_world:
-    cron: '*/10 * * * * *'   # Runs once per minute
-    class: HelloWorld
+:schedule:  
+  medication:
+    cron: '*/10 * * * * *'
+    class: Medication

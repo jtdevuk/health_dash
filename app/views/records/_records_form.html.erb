@@ -7,7 +7,7 @@
   <%= simple_form_for @record do |f| %>
     <%= f.input :name %>
     <%= f.input :description %>
-    <%= f.input :appointment_date, as: :string, input_html: {class: "date-time-picker"} %>
+    <%= f.input :appointment_date, as: :string, input_html: {class: "date-time-picker", placeholder: DateTime.now.strftime("%Y-%m-%d %H:%M")} %>
     <%= f.input :category %>
     <%= simple_fields_for :other do |o| %>
       <% if @record.id %>

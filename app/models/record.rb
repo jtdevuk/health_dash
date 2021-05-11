@@ -9,6 +9,7 @@ class Record < ApplicationRecord
   scope :filter_by_date, -> (start_date, end_date) { where appointment_date: start_date..end_date}
 
   def self.get_categories
-    Record.all.map { |record| record.category }
+    records = Record.all.filter { |record| record.category != nil && record.category != ""}
+    records.map { |record| record.category }
   end    
 end

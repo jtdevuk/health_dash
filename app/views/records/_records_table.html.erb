@@ -12,7 +12,9 @@
     <tr class="hoverable-row">
       <td><%= record.name %></td>  
       <td><%= record.description%></td>
-      <td><%= record.category %></td>
+      <td>
+        <%= record.category != nil && record.category != "" ? record.category : "Uncategorised" %>
+      </td>
       <td><%= record.appointment_date.strftime("%d %b %Y") %></td>
       <td class="hoverable-row-dark">
         <%= link_to record_path(record) do %>

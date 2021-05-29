@@ -23,9 +23,9 @@
       <p>Filter by date range:</p>
       <%= form_tag(records_path, method: :get) do %>
         <%= label_tag(:start_date, "Start date:") %>
-        <%= date_field_tag(:start_date, nil, class: "date-picker filter-field", placeholder: DateTime.now.strftime("%Y-%m-%d %H:%M")) %>
+        <%= date_field_tag(:start_date, nil, class: "date-picker filter-field", placeholder: Date.today.strftime("%d %B %Y")) %>
         <%= label_tag(:end_date, "End date:") %>
-        <%= date_field_tag(:end_date, nil, class: "date-picker filter-field", placeholder: DateTime.now.strftime("%Y-%m-%d %H:%M")) %>
+        <%= date_field_tag(:end_date, nil, class: "date-picker filter-field", placeholder: Date.today.strftime("%d %B %Y")) %>
         <%= submit_tag "Filter", class: "btn" %>
       <% end %>      
   </div>

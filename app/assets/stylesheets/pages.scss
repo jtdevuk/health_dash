@@ -35,9 +35,20 @@ $light-red: rgba(255, 0, 0, 0.05);
 
 .navbar {
   display: flex;
+  position: relative;
   height: 100px;
   width: 100%;
-  background-color: $dark-red; 
+  background-color: $dark-red;
+
+  .avatar-dropdown {
+    position: absolute;
+    width: 170px;
+    height: 100px;
+    background-color: $dark-red;
+    right: 0;
+    top: 100px;
+    display: none;
+  }
 
   ul {
     list-style: none;    
@@ -179,6 +190,10 @@ $light-red: rgba(255, 0, 0, 0.05);
   .btn {
     background-color: white;
   }
+}
+
+.hidden {
+  display: block;
 }
 
 @media (max-width: 880px) {

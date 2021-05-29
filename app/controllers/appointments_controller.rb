@@ -22,7 +22,6 @@ class AppointmentsController < ApplicationController
   end
 
   def show  
-    @marker = { lat: @appointment.latitude, lng: @appointment.longitude }
   end
 
   def edit
@@ -41,6 +40,11 @@ class AppointmentsController < ApplicationController
     redirect_to appointments_path
   end  
 
+  def letter
+    @appointment = Appointment.find(params[:appointment_id])
+    @letter = @appointment.letter
+  end
+
   private
 
   def set_appointment
@@ -48,7 +52,7 @@ class AppointmentsController < ApplicationController
   end
 
   def appointment_params
-    params.require(:appointment).permit(:name, :location, :start_time, :record_id, :description)
+    params.require(:appointment).permit(:name, :start_time, :letter, :description, :location)
   end
 
 end

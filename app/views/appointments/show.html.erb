@@ -17,8 +17,8 @@
   </div>
   <div class="appointment-info">
     <h4>Related documents</h4>
-    <% if @appointment.record && @appointment.record.letter.attached? %>
-      <%= link_to "View document", record_path(@appointment.record) %>
+    <% if @appointment.letter.attached? %>
+      <%= link_to "View document", appointment_letter_path(@appointment) %>
     <% else %>
         <p>This appointment has no related documents</p>
     <% end %>

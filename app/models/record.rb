@@ -1,6 +1,5 @@
 class Record < ApplicationRecord
   belongs_to :user 
-  has_one :appointment
   has_one_attached :letter
 
   validates :name, :description, :date, presence: true

@@ -1,0 +1,13 @@
+<% if @letter %>
+  <%= link_to appointment_path(@appointment) do %>
+    <div class="close-button">
+      X
+    </div>
+    <% end %>
+  <div id="iframe-container">
+  <iframe id="pdf" src="<%= url_for @letter %>" frameborder="1" scrolling="auto"></iframe>  
+</div>
+<% else %>
+<p>No letter associated with this appointment, would you like to add one?</p>
+  <%= link_to "Add a letter", edit_appointment_path(@appointment) %>
+<% end %>

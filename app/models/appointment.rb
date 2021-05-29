@@ -1,6 +1,6 @@
 class Appointment < ApplicationRecord
   belongs_to :user
-  has_one :record
+  has_one_attached :letter
   validates :name, :location, presence: true
 
   def self.reminder

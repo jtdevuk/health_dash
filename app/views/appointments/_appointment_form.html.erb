@@ -9,7 +9,7 @@
     <%= f.input :location %>
     <%= f.input :start_time, as: :string, input_html: {class: "date-time-picker"}, 
                                                        label: "Date and Time", 
-                                                       placeholder: DateTime.now.strftime("%Y-%m-%d %H:%M") %>
+                                                       placeholder: Date.today.strftime("%Y-%m-%d") %>
     <%= f.input :description %>
     <%= f.input :letter, label: 'PDF file:', input_html: {accept: ('application/pdf') } %>    
     <%= f.button :submit %>

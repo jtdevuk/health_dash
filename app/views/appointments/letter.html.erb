@@ -1,11 +1,17 @@
-<% if @letter %>
-  <%= link_to appointment_path(@appointment) do %>
-    <div class="close-button">
-      X
-    </div>
+<div id="records-header">
+    <h1 class="centered heading"><%= @appointment.name %></h1>
+    <h3 class="centered heading"><%= @appointment.description %></h3>
+    <% if @letter %>
+      <%= link_to appointment_path(@appointment) do %>
+        <div class="close-button">
+          X
+        </div>
     <% end %>
-  <div id="iframe-container">
-  <iframe id="pdf" src="<%= url_for @letter %>" frameborder="1" scrolling="auto"></iframe>  
+    <% end %>
+</div>
+<% if @letter %>
+  <div class="iframe-container">
+  <iframe class="pdf" src="<%= url_for @letter %>" frameborder="1" scrolling="auto"></iframe>  
 </div>
 <% else %>
 <p>No letter associated with this appointment, would you like to add one?</p>

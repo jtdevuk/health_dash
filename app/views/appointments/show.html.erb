@@ -16,11 +16,10 @@
     <p><%= @appointment.description %></p>
   </div>
   <div class="appointment-info">
-    <h4>Related documents</h4>
     <% if @appointment.letter.attached? %>
-      <%= link_to "View document", appointment_letter_path(@appointment) %>
+      <%= link_to "View appointment letter", appointment_letter_path(@appointment), class: "btn" %>
     <% else %>
-        <p>This appointment has no related documents</p>
+        <p>This appointment has no attached letters. You can add one by editing the appointment below.</p>
     <% end %>
   </div>  
   <div class="btn-container">

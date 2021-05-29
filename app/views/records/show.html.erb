@@ -12,8 +12,8 @@
 <h3 class="centered records-h3"><%= @record.description %></h3>
 
 <% if @record.letter.attached? %>
-  <div id="iframe-container">
-  <iframe id="pdf" src="<%= url_for @record.letter %>" frameborder="1" scrolling="auto"></iframe>  
+  <div class="iframe-container">
+  <iframe class="pdf" src="<%= url_for @record.letter %>" frameborder="1" scrolling="auto"></iframe>  
 </div>
 <% else %>
 <p>No document associated with this record, would you like to add one?</p>

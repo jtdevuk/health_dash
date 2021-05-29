@@ -6,6 +6,7 @@
   <p><%= "You don't have any appointments in the month shown" %></p>
 <% end %>
 
+<%= link_to "Add a new appointment", new_appointment_path, class: "btn" %>
 <%= month_calendar(events: @appointments) do |date, appointments| %>
   <%= date.day %>
 
@@ -17,4 +18,3 @@
   <% end %>
 <% end %>
 
-<%= link_to "Add a new appointment", new_appointment_path, class: "btn" %>

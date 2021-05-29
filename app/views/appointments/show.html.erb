@@ -23,12 +23,8 @@
         <p>This appointment has no related documents</p>
     <% end %>
   </div>  
-  <div id="map"     
-     data-marker="<%= @marker.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
   <div class="btn-container">
     <%= link_to "Back to Calendar", appointments_path, class: "btn" %>
     <%= link_to "Edit Appointment", edit_appointment_path(@appointment), class: "btn" %>
     <%= link_to "Delete Appointment", appointment_path(@appointment), class: "btn delete", method: :delete, data: { confirm: "Are you sure?" } %>
   </div>
-</div>

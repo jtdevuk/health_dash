@@ -25,6 +25,7 @@ class AppointmentsController < ApplicationController
   end
 
   def edit
+    @appointment.start_time = @appointment.start_time.strftime("%d-%m-%Y %H:%M")
   end
 
   def update

@@ -9,13 +9,12 @@
     <th></th>
   </header>
   <% @medications.each do |med| %>
-    <% supply = calc_supply(med) %>
     <tr class="hoverable-row">
       <td><%= med.name %></td>  
       <td><%= med.description%></td>
       <td><%= med.dose %></td>
       <td><%= calc_remaining(med) %></td>
-      <td><%= pluralize(supply, "day") %></td>
+      <td><%= pluralize(calc_supply(med), "day") %></td>
       <td class="hoverable-row-dark">
         <%= link_to edit_medication_path(med) do %>
           <i class="far fa-edit"></i>

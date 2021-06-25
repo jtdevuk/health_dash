@@ -9,6 +9,6 @@ class Record < ApplicationRecord
 
   def self.get_categories
     records = Record.all.filter { |record| record.category != nil && record.category != ""}
-    records.map { |record| record.category }
+    records.map { |record| record.category }.uniq
   end    
 end

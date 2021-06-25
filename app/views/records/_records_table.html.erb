@@ -15,7 +15,7 @@
       <td>
         <%= record.category != nil && record.category != "" ? record.category : "Uncategorised" %>
       </td>
-      <td><%= record.date.strftime("%d %b %Y") %></td>
+      <td><%= record.date.strftime("%d %B %Y") %></td>
       <td class="hoverable-row-dark">
         <%= link_to record_path(record) do %>
          <%= fa_icon "book" %>

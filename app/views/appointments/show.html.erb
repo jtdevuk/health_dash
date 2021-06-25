@@ -23,7 +23,7 @@
     <% end %>
   </div>  
   <div class="btn-container">
-    <%= link_to "Back to Calendar", appointments_path, class: "btn" %>
+    <%= link_to "Back to Calendar", appointments_path(start_date: params[:cal_view]), class: "btn" %>
     <%= link_to "Edit Appointment", edit_appointment_path(@appointment), class: "btn" %>
     <%= link_to "Delete Appointment", appointment_path(@appointment), class: "btn delete", method: :delete, data: { confirm: "Are you sure?" } %>
   </div>

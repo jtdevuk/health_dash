@@ -22,7 +22,7 @@ document.addEventListener("turbolinks:load", function(){
   initFlatpickr();
   document.querySelector('.avatar').addEventListener('click', function(e){
     e.preventDefault();
-    // document.querySelector('.avatar-dropdown').classList.toggle('hidden');
-    console.log(document.querySelector('.avatar-dropdown'));
+    document.querySelector('.avatar-dropdown').classList.toggle('hidden');
   })
 })
+

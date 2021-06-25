@@ -7,13 +7,18 @@
       <div id="title">
         HealthDash
       </div>
+      <% if current_user %>
       <div id="navbar-links">
-      <ul>
-        <li><%= link_to "Appointments", appointments_path, class: "nav-link" %></li>
-        <li><%= link_to "Medications", medications_path, class: "nav-link" %></li>
-        <li><%= link_to "Records", records_path, class: "nav-link" %></li>
-      </ul>      
+        <ul>
+          <li><%= link_to "Appointments", appointments_path, class: "nav-link" %></li>
+          <li><%= link_to "Medications", medications_path, class: "nav-link" %></li>
+          <li><%= link_to "Records", records_path, class: "nav-link" %></li>
+        </ul>      
       </div>
-      <a href="#"><li><div class="avatar"><i class="far fa-user"></i></div></li></a>
-      <div class="avatar-dropdown"></div>
+        <a href="#"><li><div class="avatar"><i class="far fa-user"></i></div></li></a>
+        <div class="avatar-dropdown hidden">
+          <li><%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
+        </div>
+      <% end %>
+      
     </div>

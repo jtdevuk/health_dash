@@ -7,7 +7,7 @@
   <%= simple_form_for @record do |f| %>
     <%= f.input :name %>
     <%= f.input :description %>
-    <%= f.input :date, as: :string, input_html: {class: "date-picker", placeholder: Date.today.strftime("%d %B %Y")} %>
+    <%= f.input :date, as: :string, input_html: {class: "date-picker", placeholder: Date.today.strftime("%d-%m-%Y")} %>
     <%= f.input :category %>
     <%= f.input :letter, label: 'PDF file:', input_html: {accept: ('application/pdf') } %>    
     <%= f.button :submit %>

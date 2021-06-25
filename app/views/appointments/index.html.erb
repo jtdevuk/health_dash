@@ -7,6 +7,7 @@
   <% appointments.each do |appointment| %>
     <div id="appointment-info">
         <%= link_to appointment.name, appointment_path(appointment, cal_view: params[:start_date]) %>
+        <hr>
     </div>
   <% end %>
 <% end %>

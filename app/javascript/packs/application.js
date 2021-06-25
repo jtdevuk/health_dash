@@ -20,9 +20,12 @@ import { initFlatpickr } from "../plugins/flatpickr";
 
 document.addEventListener("turbolinks:load", function(){
   initFlatpickr();
-  document.querySelector('.avatar').addEventListener('click', function(e){
-    e.preventDefault();
-    document.querySelector('.avatar-dropdown').classList.toggle('hidden');
-  })
+  const avatar = document.querySelector('.avatar')
+  if(avatar) {
+    avatar.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelector('.avatar-dropdown').classList.toggle('hidden');
+    })
+  }
 })
 

@@ -43,13 +43,17 @@ $light-red: rgba(255, 0, 0, 0.05);
   .avatar-dropdown {
     position: absolute;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 150px;
-    height: 50px;
     background-color: $dark-red;
     right: 0;
     top: 100px;
+
+    .nav-link {
+      line-height: 2;
+    }
   }
 
   .hidden {

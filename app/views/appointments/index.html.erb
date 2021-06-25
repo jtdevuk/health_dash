@@ -1,7 +1,7 @@
 <h3>Hi, <%= current_user.first_name %></h3>
 
 <% if @appointments.any? %>
-  <p><%= "You have #{@appointments.length} appointments in the month shown" %></p>
+  <p><%= "You have #{pluralize(@appointments.length, "appointment")} in the month shown" %></p>
 <% else %>
   <p><%= "You don't have any appointments in the month shown" %></p>
 <% end %>

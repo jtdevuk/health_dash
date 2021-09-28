@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Appointment < ApplicationRecord
   belongs_to :user
   has_one_attached :letter
@@ -8,9 +10,7 @@ class Appointment < ApplicationRecord
       user.appointments.each do |app|
         date = app.start_time.to_date
         difference = (date - Date.today).to_i
-        if difference <= 7
-          AppointmentMailer.with(user: user, app: app).appointment_reminder.deliver_now
-        end
+        AppointmentMailer.with(user: user, app: app).appointment_reminder.deliver_now if difference <= 7
       end
     end
   end

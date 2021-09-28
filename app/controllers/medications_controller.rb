@@ -1,6 +1,7 @@
-class MedicationsController < ApplicationController
+# frozen_string_literal: true
 
-  before_action :set_medication, only: [:edit, :update, :destroy, :supply]
+class MedicationsController < ApplicationController
+  before_action :set_medication, only: %i[edit update destroy supply]
 
   def index
     @medications = current_user.medications
@@ -13,17 +14,16 @@ class MedicationsController < ApplicationController
 
   def create
     @med = Medication.new(medication_params)
-    @med.user_id = current_user.id 
+    @med.user_id = current_user.id
 
     if @med.save
       redirect_to medications_path
     else
-      render "new"
+      render 'new'
     end
   end
 
-  def edit     
-  end
+  def edit; end
 
   def destroy
     @med.destroy
@@ -36,7 +36,7 @@ class MedicationsController < ApplicationController
       @med.update(low_warning_sent: false)
       redirect_to medications_path
     else
-      render "edit"
+      render 'edit'
     end
   end
 
@@ -49,5 +49,4 @@ class MedicationsController < ApplicationController
   def medication_params
     params.require(:medication).permit(:name, :description, :remaining, :user_id, :dose, :low_warning_sent)
   end
-
 end

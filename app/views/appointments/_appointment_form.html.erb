@@ -7,11 +7,11 @@
   <%= simple_form_for @appointment do |f| %>
     <%= f.input :name %>
     <%= f.input :location %>
-    <%= f.input :start_time, as: :string, input_html: {class: "date-time-picker"}, 
+    <%= f.input :start_time, as: :string, input_html: {class: "date-time-picker"},
                                                        label: "Date and Time", 
                                                        placeholder: Date.today.strftime("%d-%m-%Y %H:%M") %>
     <%= f.input :description %>
-    <%= f.input :letter, label: 'PDF file:', input_html: {accept: ('application/pdf') } %>    
+    <%= f.input :letter, label: 'PDF file:', input_html: {accept: ('application/pdf') } %>
     <%= f.button :submit %>    
   <% end %>
 </div>

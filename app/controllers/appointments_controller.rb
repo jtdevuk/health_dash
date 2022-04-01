@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class AppointmentsController < ApplicationController
-  before_action :set_appointment, only: %i[show edit update destroy]
+  before_action :set_appointment, only: %i[show edit update destroy reminder_sent]
+
   def index
     @new_appointment = Appointment.new
     start_date = params.fetch(:start_date, Date.today).to_date
@@ -47,6 +48,10 @@ class AppointmentsController < ApplicationController
     @letter = @appointment.letter
   end
 
+  def reminder_sent!
+    @appointment.reminder_sent = true
+  end
+
   private
 
   def set_appointment
@@ -54,6 +59,6 @@ class AppointmentsController < ApplicationController
   end
 
   def appointment_params
-    params.require(:appointment).permit(:name, :start_time, :letter, :description, :location)
+    params.require(:appointment).permit(:name, :start_time, :letter, :description)
   end
 end

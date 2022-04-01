@@ -4,16 +4,17 @@ class AppointmentMailer < ApplicationMailer
   def appointment_reminder
     @user = params[:user]
     @app = params[:app]
-    check_for_record
+    attach_letter
     mail(to: 'j.tweeddale@outlook.com', subject: 'Upcoming appointment reminder')
+    @app.reminder_sent!
   end
 
   private
 
-  def check_for_record
-    return unless params[:app].record.present? && params[:app].record.letter.attached?
+  def attach_letter
+    return unless params[:app].letter.attached?
 
-    @attachment = params[:app].record.letter
+    @attachment = params[:app].letter
     attachments['Appointment.pdf'] = {
       mime_type: @attachment.blob.content_type,
       content: @attachment.blob.download
